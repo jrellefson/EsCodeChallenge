@@ -1,0 +1,29 @@
+﻿@model SoftwareSearchViewModel
+@{
+    ViewData["Title"] = "Software Search";
+}
+
+<div>
+    <h1 class="display-4">Software Products Search</h1>
+    <p>
+        Enter a version number in the text box below and receive a list of all software products used by Imaginary
+        Company whose version number is greater than the one entered.
+    </p>
+    <form method="get" asp-action="SoftwareSearchList">
+        <input type="text" asp-for="SearchString" />
+        <button type="submit">Search</button>
+    </form>
+
+    @if (Model != null && Model.SoftwareResults != null && Model.SoftwareResults.Any())
+    {
+        <ul>
+            @foreach (var softwareResult in @Model.SoftwareResults)
+            {
+                <li>@softwareResult.Name</li>
+            }
+        </ul>
+    }
+
+    
+
+</div>
