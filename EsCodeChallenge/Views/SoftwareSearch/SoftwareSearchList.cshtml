@@ -6,8 +6,8 @@
 <div>
     <h1 class="display-4">Software Products Search</h1>
     <p>
-        Enter a version number in the text box below and receive a list of all software products used by Imaginary
-        Company whose version number is greater than the one entered.
+        Enter a version number in the text box below to get a list of all software products used by Imaginary
+        Company which have a version number greater than the one entered.
     </p>
     <form method="get" asp-action="SoftwareSearchList">
         <input type="text" asp-for="SearchString" />
@@ -19,7 +19,7 @@
         <ul>
             @foreach (var softwareResult in @Model.SoftwareResults)
             {
-                <li>@softwareResult.Name</li>
+                <li>@softwareResult.Name (@softwareResult.Version)</li>
             }
         </ul>
     }
